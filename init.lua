@@ -53,6 +53,7 @@ vim.opt.scrolloff = 10
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.g.netrw_list_hide = [[^\.git\(/\|$\)\|^node_modules\(/\|$\)\|__pycache__\|\.o$\|\.out$]]
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -429,7 +430,10 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        clangd = {
+          settings = {},
+        },
+        sqlls = {},
 
         --e
         lua_ls = {

@@ -404,6 +404,7 @@ require('lazy').setup({
           settings = {},
         },
         sqlls = {},
+        pylsp = {},
 
         --e
         lua_ls = {
@@ -682,6 +683,11 @@ require('lazy').setup({
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
         return '%2l/%2L:%-2v'
+      end
+
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_filename = function()
+        return '%F'
       end
 
       -- ... and there is more!
